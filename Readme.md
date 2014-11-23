@@ -35,7 +35,7 @@ SHIORI DLL規格を満たすshiori.dllは本来[伺か](http://usada.sakura.vg/)
 実例
 -------------------
 
-下記サンプルは[example](example)にファイルとしても存在します。
+下記サンプルは[examples](examples)にファイルとしても存在します。
 
 手っ取り早くテストしたい場合に便利です。
 
