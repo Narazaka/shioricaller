@@ -32,7 +32,9 @@ SHIORI DLL規格を満たすshiori.dllは本来[伺か](http://usada.sakura.vg/)
 
 そこでshioricallerは、それらshiori.dllが処理する独自言語の、所謂「コマンドライン版」のような使用方法を提供します。
 
-例えば「コマンドライン版」のないYAYAの場合、以下のようにrequestに任意の処理を書くことによって、コマンドラインから「YAYA言語」の自由なテストが行えます(Windowsの場合)。
+### YAYAの場合
+
+YAYAには「コマンドライン版」がありませんが、以下のようにrequestに任意の処理を書くことによって、コマンドラインから「YAYA言語」の自由なテストが行えます(Windowsの場合)。
 
     1. C:\path\to\ に以下を配置
     --------------------
@@ -56,6 +58,98 @@ SHIORI DLL規格を満たすshiori.dllは本来[伺か](http://usada.sakura.vg/)
     
     4. 以下のコマンドを実行
     shioricaller C:\path\to\yaya.dll C:\path\to\ < NUL
+
+### 里々の場合
+
+里々にも「コマンドライン版」がありませんが、以下のようにテスト用エントリに任意の処理を書くことによって、コマンドラインから「里々言語」の自由なテストが行えます(Windowsの場合)。
+
+    1. C:\path\to\ に以下を配置
+    --------------------
+    - dictest.txt
+    - satori.dll
+    - request.txt
+    --------------------
+    
+    2. C:\path\to\dictest.txt に以下を記述
+    --------------------
+    ＊OnTest
+    こんにちは里々のセカイ
+    --------------------
+    
+    3. C:\path\to\request.txt に以下を記述(改行は2回入れてください)
+    --------------------
+    GET SHIORI/3.0
+    ID: OnTest
+    
+    
+    --------------------
+    
+    4. 以下のコマンドを実行
+    shioricaller C:\path\to\satori.dll C:\path\to\ < request.txt
+
+### 美坂の場合
+
+美坂にも「コマンドライン版」がありませんが、以下のようにテスト用エントリに任意の処理を書くことによって、コマンドラインから「美坂言語」の自由なテストが行えます(Windowsの場合)。
+
+    1. C:\path\to\ に以下を配置
+    --------------------
+    - misaka.txt
+    - misaka.ini
+    - misaka.dll
+    - request.txt
+    --------------------
+    
+    2. C:\path\to\misaka.ini に以下を記述
+    --------------------
+    dictionaries
+    {
+    misaka.txt
+    }
+    --------------------
+    
+    3. C:\path\to\misaka.txt に以下を記述
+    --------------------
+    $OnTest
+    Hello misaka world.
+    --------------------
+    
+    4. C:\path\to\request.txt に以下を記述(改行は2回入れてください)
+    --------------------
+    GET SHIORI/3.0
+    ID: OnTest
+    
+    
+    --------------------
+    
+    5. 以下のコマンドを実行
+    shioricaller C:\path\to\misaka.dll C:\path\to\ < request.txt
+
+### 華和梨の場合
+
+華和梨には「コマンドライン版」である「幸水」がありますが、shioricallerでも以下の方法で一応テスト可能です(Windowsの場合)。
+
+    1. C:\path\to\ に以下を配置
+    --------------------
+    - kawarirc.kis
+    - shiori.dll
+    - request.txt
+    --------------------
+    
+    2. C:\path\to\kawarirc.kis に以下を記述
+    --------------------
+    System.Callback.OnGET: (Hello KAWARI world.)
+    --------------------
+    
+    3. C:\path\to\request.txt に以下を記述(改行は2回入れてください)
+    --------------------
+    GET SHIORI/3.0
+    ID: OnTest
+    
+    
+    --------------------
+    
+    4. 以下のコマンドを実行
+    shioricaller C:\path\to\shiori.dll C:\path\to\ < request.txt
 
 ライセンス
 --------------------------
