@@ -1,0 +1,1 @@
+@..\..\shioricaller misaka.dll %~dp0 < ..\request.txt

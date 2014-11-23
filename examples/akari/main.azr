@@ -1,0 +1,4 @@
+string OnTest()
+{
+	return "Hello Akari world";
+}

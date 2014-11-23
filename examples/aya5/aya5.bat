@@ -1,0 +1,1 @@
+@..\..\shioricaller aya5.dll %~dp0 < input.txt

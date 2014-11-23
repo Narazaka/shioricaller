@@ -1,0 +1,1 @@
+@..\..\shioricaller satori.dll %~dp0 < ..\request.txt
