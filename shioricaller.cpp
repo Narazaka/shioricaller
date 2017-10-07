@@ -48,29 +48,29 @@ int main(int argc, char* argv[]){
 	}
 	const string dll = argv[1];
 	const string dirpath = argv[2];
-	
+
 	HMODULE handle = LoadLibrary(dll.c_str());
 	if(handle == NULL){
-		cout << "cannot load dll [" << dll << "]" << endl;
+		cout << "cannot load dll [" << dll << "] code [" << GetLastError() << "]" << endl;
 		return 0;
 	}
 
 	LOAD load = (LOAD)GetProcAddress(handle, "load");
 	REQUEST request = (REQUEST)GetProcAddress(handle, "request");
 	UNLOAD unload = (UNLOAD)GetProcAddress(handle, "unload");
-	
+
 	if(load == NULL || request == NULL || unload == NULL){
 		cout << "cannot get functions load, request, unload [" << dll << "]" << endl;
 		FreeLibrary(handle);
 		return 0;
 	}
-	
+
 	if(call_load(load, dirpath) != 1){
 		cout << "load returns non 1 [" << dll << "]" << endl;
 		FreeLibrary(handle);
 		return 0;
 	}
-	
+
 	string req;
 	string req_line;
 	while(1){
@@ -84,13 +84,13 @@ int main(int argc, char* argv[]){
 	}
 	string res = call_request(request, req);
 	cout << res << endl;
-	
+
 	if(call_unload(unload) != 1){
 		cout << "unload returns non 1 [" << dll << "]" << endl;
 		FreeLibrary(handle);
 		return 0;
 	}
-	
+
 	FreeLibrary(handle);
 
 	return 0;
