@@ -5,6 +5,11 @@ shioricaller
 
     shioricaller shiori.dll dirpath < request.txt > response.txt
 
+ダウンロード
+-------------------
+
+[Releases](https://github.com/Narazaka/shioricaller/releases) からどうぞ
+
 これは何か？
 -------------------
 
