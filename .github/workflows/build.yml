@@ -17,3 +17,15 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
     - name: make
       run: .\make.bat
+    - name: test kawari
+      run: cd ./examples/kawari; ./kawari.bat; cd ../..
+    - name: test yaya
+      run: cd ./examples/yaya; ./yaya.bat; cd ../..
+    - name: test satori
+      run: cd ./examples/satori; ./satori.bat; cd ../..
+    - name: test misaka
+      run: cd ./examples/misaka; ./misaka.bat; cd ../..
+    - name: test aya5
+      run: cd ./examples/aya5; ./aya5.bat; cd ../..
+    - name: test akari
+      run: cd ./examples/akari; ./akari.bat; cd ../..
