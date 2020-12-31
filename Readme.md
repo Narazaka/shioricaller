@@ -1,6 +1,8 @@
 shioricaller
 ===================
 
+![build](https://github.com/Narazaka/shioricaller/workflows/build/badge.svg)
+
     shioricaller shiori.dll dirpath < request.txt > response.txt
 
 これは何か？
