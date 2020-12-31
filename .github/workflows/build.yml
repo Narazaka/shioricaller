@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  windows-cl:
+
+    runs-on: windows-latest
+  
+    steps:
+    - uses: actions/checkout@v2
+    - name: Add C++ build tools to PATH
+      uses: ilammy/msvc-dev-cmd@v1
+    - name: make
+      run: .\make.bat
