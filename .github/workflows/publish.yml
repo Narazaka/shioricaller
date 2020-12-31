@@ -18,7 +18,7 @@ jobs:
     - name: make
       run: .\make.bat
     - name: archive dll lib
-      run: powershell Compress-Archive -Path shioricaller.dll shioricaller.lib -DestinationPath shioricaller-lib.zip
+      run: powershell Compress-Archive -Path shioricaller.dll,shioricaller.lib -DestinationPath shioricaller-lib.zip
     - name: archive exe
       run: powershell Compress-Archive -Path shioricaller.exe -DestinationPath shioricaller.zip
     - name: Create Release
