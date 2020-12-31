@@ -1,4 +1,4 @@
-string OnTest()
+array _customrequest( dict ref )
 {
 	return "Hello Akari world";
 }
