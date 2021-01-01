@@ -1,1 +1,1 @@
-@..\..\shioricaller yaya.dll %~dp0 < input.txt
+@..\..\shioricaller yaya.dll %~dp0 < ..\request.txt
