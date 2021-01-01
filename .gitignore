@@ -4,3 +4,7 @@
 *.exp
 *.lib
 .vscode
+satori_savedata.txt
+yaya_variable.cfg
+aya5_variable.cfg
+misaka_vars.txt

@@ -17,20 +17,13 @@ shioricallerは[SHIORI DLL](http://usada.sakura.vg/contents/specification2.html#
 
 1. 第一引数の名前のshiori.dllを使う。
 2. 第二引数を引数文字列としてload()を呼ぶ。
-3. stdinに入力された文字列を引数文字列としてrequest()を呼び、返却された文字列をstdoutに出力する。
+3. stdinに入力された文字列をSHIORIリクエスト単位で分割してrequest()を呼び、返却された文字列をstdoutに出力する。
 4. unload()を呼ぶ。
-
-使えない
--------------------
-
-SHIORI DLL規格を満たすshiori.dllは本来[伺か](http://usada.sakura.vg/)のために作られたものです。
-
-このアプリケーションはrequest()が一回しか呼ばれないのでその用途としては使えないでしょう。
 
 何に使えるか？
 -------------------
 
-しかしSHIORI DLL規格を満たすshiori.dllは、往々にして独自のスクリプト言語を持ちます。
+SHIORI DLL規格を満たすshiori.dllは、往々にして独自のスクリプト言語を持ちます。
 
 華和梨、里々、YAYA、美坂や他の多くのshiori.dllはそれぞれ伺かのSHIORI用途のみで存在する独自言語を持っています。
 
@@ -164,6 +157,20 @@ YAYAには「コマンドライン版」がありませんが、以下のよう�
     
     4. 以下のコマンドを実行
     shioricaller C:\path\to\shiori.dll C:\path\to\ < request.txt
+
+複数のリクエスト
+--------------------------
+
+以下のような連続したリクエストは有効です。空行の`[改行]`が渡った時点でレスポンスが返ってきて、合計2レスポンスが返ります。
+
+```
+GET SHIORI/3.0[改行]
+ID: version[改行]
+[改行]
+GET SHIORI/3.0[改行]
+ID: OnTest[改行]
+[改行]
+```
 
 ライセンス
 --------------------------

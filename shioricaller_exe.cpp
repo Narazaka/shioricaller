@@ -28,18 +28,17 @@ int main(int argc, char* argv[]){
 
 	std::string req;
 	std::string req_line;
-	while(1){
+	while(true){
 		std::getline(std::cin, req_line);
-		req += req_line;
-		if(!std::cin.eof()){
-			req += "\x0d\x0a";
-		}else{
-			break;
+		if (std::cin.eof()) break;
+		req += req_line + "\x0d\x0a";
+		if (req_line.empty()) {
+			auto res = shioriCaller->request(req.c_str());
+			std::cout << res;
+			free(res);
+			req = "";
 		}
 	}
-	auto res = shioriCaller->request(req.c_str());
-	std::cout << res << std::endl;
-	free(res);
 
 	if(!shioriCaller->unload()){
 		std::cout << "unload returns non 1 [" << dll << "]" << std::endl;
