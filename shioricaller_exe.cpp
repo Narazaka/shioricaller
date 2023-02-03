@@ -12,7 +12,7 @@ int main(int argc, char* argv[]){
 	auto dll = argv[1];
 	auto dirpath = argv[2];
 
-	std::unique_ptr shioriCaller = new ShioriCaller(dll);
+	std::unique_ptr<ShioriCaller> shioriCaller = new ShioriCaller(dll);
 	if (shioriCaller->load_error != nullptr) {
 		if (shioriCaller->load_error == "LoadLibrary") {
 			std::cout << "cannot load dll [" << dll << "] code [" << GetLastError() << "]" << std::endl;
